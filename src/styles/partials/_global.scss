@@ -123,7 +123,8 @@
     width:fit-content;
 }
 
-.margin-format{
+//Use for when container margin needs to be auto
+.margin-auto-format{
     margin: 0 1rem;    
 
     @include tabletplus {
@@ -135,7 +136,8 @@
     }    
 }
 
-.padding-format{
+//Use for when container padding needs to be auto
+.padding-auto-format{
     padding: 0 1rem;    
 
     @include tabletplus {
