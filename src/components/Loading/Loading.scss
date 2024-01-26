@@ -1,0 +1,55 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+
+.loading-message{
+
+    @include mobile-only{
+        width: 100%;
+    }
+
+    @include tabletplus{
+        width: 46%;
+    }
+
+    @include tablet-only{
+        width: 46%;
+    }
+
+    @include desktop{
+        width: 46%;
+    }
+
+    color: $color-black;
+    font-weight: 700;
+
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+}
+
+.loading-container{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+
+    &__heading{
+        color: $color-black;
+        font-weight: 700;
+        font-size: 50px;
+        display: flex;
+    }
+
+    &__icons{
+        img{
+            display: inline-block;
+            width: 280px;
+            height: 105px;
+            position: relative;
+            left: 2%;
+            bottom: 5%;
+        }
+    }
+}
+
