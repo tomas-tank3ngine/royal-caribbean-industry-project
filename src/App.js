@@ -1,20 +1,22 @@
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import CardComp from './components/CardComp/CardComp';
+
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Header />
+    <CardComp />
+      {/* <BrowserRouter>
+       
 
         <Routes>
           <Route path="/" element="" />
 
 
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }
