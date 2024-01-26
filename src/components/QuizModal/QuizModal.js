@@ -87,6 +87,9 @@ function QuizModal() {
     } else {
       console.log(answerMemory);
       navigate("/Loading")
+      setTimeout(()=> {
+          navigate("/packages")
+      }, 2000)
     }
   };
 
