@@ -27,6 +27,7 @@
             }
         }
         .progress-bar{
+            background-color: red;
             // display: flex;
             // align-items: center;
             // justify-content: center;
@@ -42,6 +43,7 @@
                 text-align: center;
                 padding: 16px 0;
                 width: 50%;
+                color: $color-black;
             }
 
             &__prompt{
@@ -49,6 +51,8 @@
                 text-align: center;
                 padding: 16px 0;
                 width: 50%;
+                color: $color-black;
+
             }
         }
 
@@ -64,31 +68,24 @@
 
             .quiz-options{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 16px;
                 width: 100%;
-                // flex-wrap: wrap;
-                &__container{
-                    display: flex;
-                    gap: 16px;
-                    width: 100%;
 
-                    .quiz-option{
-                        
-                        height: 128px;
+                .quiz-option{                        
+                    height: 128px;
+                    width: 45%;
+
+                    &__image{
                         width: 100%;
-
-                        &__image{
-                            width: 100%;
-                            height: 120px;
-                            // width: 7.5rem;
-                            // height: 100%;
-                            object-fit: cover;
-                            object-position: center;
-                            background-color: $color-mercury;
-                            border-radius: 0.25rem;
-                            
-                        }
+                        height: 120px;
+                        object-fit: cover;
+                        object-position: center;
+                        background-color: $color-mercury;
+                        border-radius: 0.25rem;
+                        
                     }
                 }
             }
@@ -103,8 +100,8 @@
                 background-color: $color-yellow;
                 color: rgb(56, 67, 120);
                 border: 0px rgb(237, 238, 243);
-                min-width: 64px;
-                box-shadow: none;
+                min-width: 100px;
+                box-shadow: 0 1px 3px $color-black;
                 font-size: 16px;
                 line-height: 20px;
                 padding: 11px 15px;
@@ -126,40 +123,6 @@
     }
 }
 
-
-
-
-
-// .quiz-modal__wrapper{
-//     background-color: red;
-// }
-
-// img{
-//     width: 100%;
-// }
-// form{
-//     display: flex;
-// }
-// label{
-//     position: relative;
-//     display: flex;
-//     margin: 20px;
-// }
-// /* HIDE RADIO */
-// [type=radio] { 
-//     position: absolute;
-//     opacity: 0;
-//     width: 0;
-//     height: 0;
-//   }
-  
-//   /* IMAGE STYLES */
-//   [type=radio] + img {
-//     cursor: pointer;
-//   }
-  
-//   /* CHECKED STYLES */
-//   [type=radio]:checked + img {
-//     outline: 2px solid #f00;
-    
-//   }
+.active-option{
+    border: red 1px solid;
+}
