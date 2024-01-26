@@ -1,0 +1,33 @@
+.header {
+  background-color: #0c214d;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+
+  &__heading {
+    text-decoration: none;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  &__logo {
+    max-width: 140px;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.search__button {
+  border: none;
+  background-color: #0c214d;
+}
