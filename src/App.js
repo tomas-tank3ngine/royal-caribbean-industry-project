@@ -10,7 +10,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
-      <button>Click me</button>
+      {/* <button>Click me</button> */}
     </>
   );
 }
