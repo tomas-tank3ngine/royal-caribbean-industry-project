@@ -32,10 +32,10 @@ function QuizModal() {
     }
     if (currentQuestion === 2) {
       setOptionImages({
-        a: QuizImages().seal, //replace .seal etc with final images
-        b: QuizImages().seal,
-        c: QuizImages().seal,
-        d: QuizImages().seal,
+        a: QuizImages().bed, //replace .seal etc with final images
+        b: QuizImages().stargaze,
+        c: QuizImages().party,
+        d: QuizImages().midnightDip,
       });
     }
     if (currentQuestion === 3) {
