@@ -4,7 +4,23 @@
 
 
 .loading-message{
-    width: 46%;
+
+    @include mobile-only{
+        width: 100%;
+    }
+
+    @include tabletplus{
+        width: 46%;
+    }
+
+    @include tablet-only{
+        width: 46%;
+    }
+
+    @include desktop{
+        width: 46%;
+    }
+
     color: $color-black;
     font-weight: 700;
 
