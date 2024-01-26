@@ -1,9 +1,16 @@
 import "./QuizModal.scss";
 import { useEffect, useState } from "react";
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
+import StepProgressBar from "../ProgressBar/ProgressBar";
 
 function QuizModal() {
   const totalQuestions = 4;
+  const questions = [
+    "Choose your spirit animal",
+    "It's dinner time and you're craving food, what do you go with?!",
+    "What is your favorite color?",
+    "It's 9pm and you're left with these options, what are you choosing?",
+  ];
   //Keeps track of which question the user is on - starts on the first question
   let [currentQuestion, setCurrentQuestion] = useState(1);
 
@@ -31,10 +38,10 @@ function QuizModal() {
     }
     if (currentQuestion === 2) {
       setOptionImages({
-        a: QuizImages().seal, //replace .seal etc with final images
-        b: QuizImages().seal,
-        c: QuizImages().seal,
-        d: QuizImages().seal,
+        a: QuizImages().pizza, //replace .seal etc with final images
+        b: QuizImages().salad,
+        c: QuizImages().soup,
+        d: QuizImages().paella,
       });
     }
     if (currentQuestion === 3) {
@@ -47,10 +54,10 @@ function QuizModal() {
     }
     if (currentQuestion === 4) {
       setOptionImages({
-        a: QuizImages().whale,
-        b: QuizImages().whale,
-        c: QuizImages().whale,
-        d: QuizImages().whale,
+        a: QuizImages().bed, //replace .seal etc with final images
+        b: QuizImages().stargaze,
+        c: QuizImages().party,
+        d: QuizImages().midnightDip,
       });
     }
   }, [currentQuestion]);
@@ -78,12 +85,12 @@ function QuizModal() {
   };
 
   const handleContinue = (event) => {
-    if (currentQuestion < totalQuestions) {//may need to be only 'less than' totalQuestions
+  
+    // Increment the current question
+    if (currentQuestion < totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
-    }
-
-    else{
-        console.log(answerMemory);
+    } else {
+      console.log(answerMemory);
     }
   };
 
@@ -106,7 +113,7 @@ function QuizModal() {
         </section>
         <section className="progress-bar">
           {/* Use currentQuestion to help with progress bar */}
-          PROGRESS BAR
+          <StepProgressBar currentQuestion={currentQuestion} totalQuestions={totalQuestions}/>
           {`${answerMemory.one}`}
         </section>
 
@@ -114,7 +121,7 @@ function QuizModal() {
           <h2 className="quiz-text__heading">
             What cruise personality are you?
           </h2>
-          <h1 className="quiz-text__prompt">Choose your spirit animal</h1>
+          <h1 className="quiz-text__prompt">{questions[currentQuestion - 1]}</h1>
         </section>
 
         <section className="quiz-content">

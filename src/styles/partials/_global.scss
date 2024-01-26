@@ -5,31 +5,31 @@
 
 @font-face {
   font-family: "Verdana";
-  src: url("../../assets/fonts/verdana.ttf") format("truetype");
+  src: url("/assets/fonts/verdana.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Verdana";
-  src: url("../../assets/fonts/verdana.ttf") format("truetype");
+  src: url("/assets/fonts/verdana.ttf") format("truetype");
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Verdana";
-  src: url("../../assets/fonts/verdana-bold.ttf") format("truetype");
+  src: url("/assets/fonts/verdana-bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 .page-header {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-family: "Verdana", Arial, sans-serif;
   font-weight: 700;
 
   @include tabletplus {
     font-size: 2.0625rem;
-    line-height: 2.75rem;
+    line-height: 2rem;
     font-family: "Verdana", Arial, sans-serif;
     font-weight: 700;
   }
@@ -182,4 +182,7 @@
 }
 
 //Example use for responsive styling
-// @include tabletplus{ min-width:9.375rem; width: 10%;}
+// @include tabletplus{
+//     min-width:9.375rem;
+//     width: 10%;
+// }
