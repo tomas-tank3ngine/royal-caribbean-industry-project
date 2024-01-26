@@ -70,18 +70,19 @@
 
   &__section-button {
     background-color: $color-yellow;
-    color: $color-dark-blue;
-    border: none;
-    min-width: 64px;
-    box-shadow: none;
-    font-family: "Proxima Nova SemiBold", Verdana, Geneva, sans-serif;
-    font-size: 16px;
+    color: rgb(56, 67, 120);
+    border: 0px rgb(237, 238, 243);
+    min-width: 100px;
+    box-shadow: 0 1px 3px $color-black;
+    font-size: 32px;
     line-height: 20px;
     padding: 11px 15px;
     border-radius: 5px;
+    // padding: 1rem;
+    // border-radius: 5px;
     height: 44px;
-    letter-spacing: 0px;
-    margin-right: 10px;
+    letter-spacing: 3px;
+    // margin-right: 10px;
 
     &:hover {
       background-color: rgb(56, 67, 120);
@@ -92,6 +93,7 @@
 
   &__section-link {
     text-decoration: none;
+    padding: 2rem;
   }
 }
 
