@@ -5,6 +5,12 @@ import StepProgressBar from "../ProgressBar/ProgressBar";
 
 function QuizModal() {
   const totalQuestions = 4;
+  const questions = [
+    "Choose your spirit animal",
+    "It's dinner time and you're craving food, what do you go with?!",
+    "What is your favorite color?",
+    "It's 9pm and you're left with these options, what are you choosing?",
+  ];
   //Keeps track of which question the user is on - starts on the first question
   let [currentQuestion, setCurrentQuestion] = useState(1);
 
@@ -79,12 +85,27 @@ function QuizModal() {
   };
 
   const handleContinue = (event) => {
-    if (currentQuestion < totalQuestions) {//may need to be only 'less than' totalQuestions
-      setCurrentQuestion(currentQuestion + 1);
+    // Check the specific logic for advancing to the next question
+    switch (currentQuestion) {
+      case 1:
+        // Add any specific logic for question 1
+        break;
+      case 2:
+        // Add any specific logic for question 2
+        break;
+      case 3:
+        // Add any specific logic for question 3
+        break;
+      default:
+        // Default logic for other questions
+        break;
     }
-
-    else{
-        console.log(answerMemory);
+  
+    // Increment the current question
+    if (currentQuestion < totalQuestions) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      console.log(answerMemory);
     }
   };
 
@@ -115,7 +136,7 @@ function QuizModal() {
           <h2 className="quiz-text__heading">
             What cruise personality are you?
           </h2>
-          <h1 className="quiz-text__prompt">Choose your spirit animal</h1>
+          <h1 className="quiz-text__prompt">{questions[currentQuestion - 1]}</h1>
         </section>
 
         <section className="quiz-content">
