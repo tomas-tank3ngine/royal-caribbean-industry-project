@@ -1,0 +1,16 @@
+input {
+  height: 56px;
+  padding: 0px 16px 5px;
+  border: 1px solid rgb(210, 213, 217);
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+
+  &:active {
+    border-color: #006af4;
+  }
+}
