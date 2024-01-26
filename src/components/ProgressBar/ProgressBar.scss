@@ -15,6 +15,11 @@
 .progress-bar-container {
   position: relative;
 
+  @include tabletplus {
+    margin: auto;
+    max-width: 40rem;
+  }
+
   .whale-container {
     position: absolute;
     top: 0;

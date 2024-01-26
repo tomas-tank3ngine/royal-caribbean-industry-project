@@ -1,18 +1,23 @@
 import "./QuizModal.scss";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
 import StepProgressBar from "../ProgressBar/ProgressBar";
 
 function QuizModal() {
   const totalQuestions = 4;
   const questions = [
-    "Choose your spirit animal",
+    "Choose your favorite animal",
     "It's dinner time and you're craving food, what do you go with?!",
     "What is your favorite color?",
     "It's 9pm and you're left with these options, what are you choosing?",
   ];
-  //Keeps track of which question the user is on - starts on the first question
-  let [currentQuestion, setCurrentQuestion] = useState(1);
+
+  // Keeps track of which question the user is on - starts on the first question
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+
+  // Keeps track of the active option
+  const [activeOption, setActiveOption] = useState(null);
 
   const [answerMemory, setAnswerMemory] = useState({
     one: "",
@@ -21,15 +26,14 @@ function QuizModal() {
     four: "",
   });
 
-  //used by JSX to know which images to use depending on the question
-  //images are set in useEffect below
+  // Used by JSX to know which images to use depending on the question
+  // Images are set in useEffect below
   const [optionImages, setOptionImages] = useState({});
 
-  //set the desired images depending on the current question
+  // Set the desired images depending on the current question
   useEffect(() => {
     if (currentQuestion === 1) {
       setOptionImages({
-        //QuizImages(). is a component imported that contains an object with all image refs
         a: QuizImages().whale,
         b: QuizImages().seal,
         c: QuizImages().turtle,
@@ -38,7 +42,7 @@ function QuizModal() {
     }
     if (currentQuestion === 2) {
       setOptionImages({
-        a: QuizImages().pizza, //replace .seal etc with final images
+        a: QuizImages().pizza,
         b: QuizImages().salad,
         c: QuizImages().soup,
         d: QuizImages().paella,
@@ -46,15 +50,15 @@ function QuizModal() {
     }
     if (currentQuestion === 3) {
       setOptionImages({
-        a: QuizImages().turtle,
-        b: QuizImages().turtle,
-        c: QuizImages().turtle,
-        d: QuizImages().turtle,
+        a: QuizImages().green,
+        b: QuizImages().red,
+        c: QuizImages().blue,
+        d: QuizImages().purple,
       });
     }
     if (currentQuestion === 4) {
       setOptionImages({
-        a: QuizImages().bed, //replace .seal etc with final images
+        a: QuizImages().bed,
         b: QuizImages().stargaze,
         c: QuizImages().party,
         d: QuizImages().midnightDip,
@@ -62,39 +66,31 @@ function QuizModal() {
     }
   }, [currentQuestion]);
 
-  const handleOptionSelected = (event, imageIdentifier) => {    //imageIdentifier comes from the button's onClick, can be a-d
-    const buttons = Array.from(event.currentTarget.parentNode.children); // make an array of all 'option' buttons
-    const index = buttons.indexOf(event.currentTarget); // Get the clicked button's index
+  const handleOptionSelected = (event, imageIdentifier) => {
+    // Record the selected answer in answerMemory
+    setAnswerMemory((prevAnswerMemory) => ({
+      ...prevAnswerMemory,
+      [getQuestionKey(currentQuestion)]: imageIdentifier,
+    }));
 
-    // Set all buttons to inactive
-    buttons.forEach((button, i) => {
-      button.classList.remove("active-option");
-      if (i === index) {
-        // Set the clicked button to active
-        button.classList.add("active-option");
-
-        //Record the selected answer in answerMemory
-        setAnswerMemory((prevAnswerMemory) => ({
-          ...prevAnswerMemory,
-          [getQuestionKey(currentQuestion)]: imageIdentifier,
-        }));
-
-        
-      }
-    });
+    // Set the active option
+    setActiveOption(imageIdentifier);
   };
 
+  const navigate = useNavigate();
+
   const handleContinue = (event) => {
-  
-    // Increment the current question
+    // Increment the current question and reset the active option
     if (currentQuestion < totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
+      setActiveOption(null);
     } else {
       console.log(answerMemory);
+      navigate("/Loading")
     }
   };
 
-  //Helper function generates key for answerMemory based on currentQuestion
+  // Helper function generates key for answerMemory based on currentQuestion
   const getQuestionKey = (questionNumber) => {
     return questionNumber === 1
       ? "one"
@@ -114,48 +110,41 @@ function QuizModal() {
         <section className="progress-bar">
           {/* Use currentQuestion to help with progress bar */}
           <StepProgressBar currentQuestion={currentQuestion} totalQuestions={totalQuestions}/>
-          {`${answerMemory.one}`}
         </section>
 
         <section className="quiz-text">
-          <h2 className="quiz-text__heading">
-            What cruise personality are you?
-          </h2>
+          <h2 className="quiz-text__heading">What cruise personality are you?</h2>
           <h1 className="quiz-text__prompt">{questions[currentQuestion - 1]}</h1>
         </section>
 
         <section className="quiz-content">
           <section className="quiz-options">
-            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'a')}>
-              <img
-                src={optionImages.a}
-                alt={`${optionImages.a}`}
-                className="quiz-option__image"
-              />
+            <button
+              className={`quiz-option ${activeOption === 'a' ? 'active-option' : ''}`}
+              onClick={(event) => handleOptionSelected(event, 'a')}
+            >
+              <img src={optionImages.a} alt={`${optionImages.a}`} className="quiz-option__image" />
             </button>
 
-            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'b')}>
-              <img
-                src={optionImages.b}
-                alt={`${optionImages.b}`}
-                className="quiz-option__image"
-              />
+            <button
+              className={`quiz-option ${activeOption === 'b' ? 'active-option' : ''}`}
+              onClick={(event) => handleOptionSelected(event, 'b')}
+            >
+              <img src={optionImages.b} alt={`${optionImages.b}`} className="quiz-option__image" />
             </button>
 
-            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'c')}>
-              <img
-                src={optionImages.c}
-                alt={`${optionImages.c}`}
-                className="quiz-option__image"
-              />
+            <button
+              className={`quiz-option ${activeOption === 'c' ? 'active-option' : ''}`}
+              onClick={(event) => handleOptionSelected(event, 'c')}
+            >
+              <img src={optionImages.c} alt={`${optionImages.c}`} className="quiz-option__image" />
             </button>
 
-            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'd')}>
-              <img
-                src={optionImages.d}
-                alt={`${optionImages.d}`}
-                className="quiz-option__image"
-              />
+            <button
+              className={`quiz-option ${activeOption === 'd' ? 'active-option' : ''}`}
+              onClick={(event) => handleOptionSelected(event, 'd')}
+            >
+              <img src={optionImages.d} alt={`${optionImages.d}`} className="quiz-option__image" />
             </button>
           </section>
         </section>
