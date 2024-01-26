@@ -1,17 +1,28 @@
 import "./QuizModal.scss";
-// import "../../styles/partials/_buttons.scss";
 import { useEffect, useState } from "react";
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
 
 function QuizModal() {
   const totalQuestions = 4;
+  //Keeps track of which question the user is on - starts on the first question
   let [currentQuestion, setCurrentQuestion] = useState(1);
-  const [optionImages, setOptionImages] = useState({});
-  //   const [activeStatus, setActiveStatus] = useState("");
 
+  const [answerMemory, setAnswerMemory] = useState({
+    one: "",
+    two: "",
+    three: "",
+    four: "",
+  });
+
+  //used by JSX to know which images to use depending on the question
+  //images are set in useEffect below
+  const [optionImages, setOptionImages] = useState({});
+
+  //set the desired images depending on the current question
   useEffect(() => {
     if (currentQuestion === 1) {
       setOptionImages({
+        //QuizImages(). is a component imported that contains an object with all image refs
         a: QuizImages().whale,
         b: QuizImages().seal,
         c: QuizImages().turtle,
@@ -20,7 +31,7 @@ function QuizModal() {
     }
     if (currentQuestion === 2) {
       setOptionImages({
-        a: QuizImages().seal,
+        a: QuizImages().seal, //replace .seal etc with final images
         b: QuizImages().seal,
         c: QuizImages().seal,
         d: QuizImages().seal,
@@ -44,10 +55,9 @@ function QuizModal() {
     }
   }, [currentQuestion]);
 
-  const handleOptionSelected = (event) => {
-    // Get the clicked button's index
-    const buttons = Array.from(event.currentTarget.parentNode.children);
-    const index = buttons.indexOf(event.currentTarget);
+  const handleOptionSelected = (event, imageIdentifier) => {
+    const buttons = Array.from(event.currentTarget.parentNode.children); // make an array of all 'option' buttons
+    const index = buttons.indexOf(event.currentTarget); // Get the clicked button's index
 
     // Set all buttons to inactive
     buttons.forEach((button, i) => {
@@ -55,14 +65,31 @@ function QuizModal() {
       if (i === index) {
         // Set the clicked button to active
         button.classList.add("active-option");
+
+        //Record the selected answer in answerMemory
+        setAnswerMemory((prevAnswerMemory) => ({
+          ...prevAnswerMemory,
+          [getQuestionKey(currentQuestion)]: imageIdentifier,
+        }));
       }
     });
   };
 
   const handleContinue = (event) => {
-    if (currentQuestion <= totalQuestions){
-        setCurrentQuestion(currentQuestion + 1)
+    if (currentQuestion <= totalQuestions) {//may need to be only 'less than' totalQuestions
+      setCurrentQuestion(currentQuestion + 1);
     }
+  };
+
+  //Helper function generates key for answerMemory based on currentQuestion
+  const getQuestionKey = (questionNumber) => {
+    return questionNumber === 1
+      ? "one"
+      : questionNumber === 2
+      ? "two"
+      : questionNumber === 3
+      ? "three"
+      : "four";
   };
 
   return (
@@ -72,8 +99,9 @@ function QuizModal() {
           <button className="close-modal__button">X</button>
         </section>
         <section className="progress-bar">
-          {/* NO IDEA */}
+          {/* Use currentQuestion to help with progress bar */}
           PROGRESS BAR
+          {`${answerMemory.one}`}
         </section>
 
         <section className="quiz-text">
