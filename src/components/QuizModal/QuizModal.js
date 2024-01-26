@@ -1,10 +1,48 @@
 import "./QuizModal.scss";
 // import "../../styles/partials/_buttons.scss";
 import { useEffect, useState } from "react";
+import QuizImages from "../QuizImageHolder/QuizImageHolder";
 
 function QuizModal() {
-  const [questionNum, setQuestionNum] = useState(1);
-  const [activeStatus, setActiveStatus] = useState("");
+  const totalQuestions = 4;
+  let [currentQuestion, setCurrentQuestion] = useState(1);
+  const [optionImages, setOptionImages] = useState({});
+  //   const [activeStatus, setActiveStatus] = useState("");
+
+  useEffect(() => {
+    if (currentQuestion === 1) {
+      setOptionImages({
+        a: QuizImages().whale,
+        b: QuizImages().seal,
+        c: QuizImages().turtle,
+        d: QuizImages().dolphin,
+      });
+    }
+    if (currentQuestion === 2) {
+      setOptionImages({
+        a: QuizImages().seal,
+        b: QuizImages().seal,
+        c: QuizImages().seal,
+        d: QuizImages().seal,
+      });
+    }
+    if (currentQuestion === 3) {
+      setOptionImages({
+        a: QuizImages().turtle,
+        b: QuizImages().turtle,
+        c: QuizImages().turtle,
+        d: QuizImages().turtle,
+      });
+    }
+    if (currentQuestion === 4) {
+      setOptionImages({
+        a: QuizImages().whale,
+        b: QuizImages().whale,
+        c: QuizImages().whale,
+        d: QuizImages().whale,
+      });
+    }
+  }, [currentQuestion]);
 
   const handleOptionSelected = (event) => {
     // Get the clicked button's index
@@ -19,6 +57,12 @@ function QuizModal() {
         button.classList.add("active-option");
       }
     });
+  };
+
+  const handleContinue = (event) => {
+    if (currentQuestion <= totalQuestions){
+        setCurrentQuestion(currentQuestion + 1)
+    }
   };
 
   return (
@@ -41,46 +85,44 @@ function QuizModal() {
 
         <section className="quiz-content">
           <section className="quiz-options">
-            
-              <button className={`quiz-option ${activeStatus}`} onClick={handleOptionSelected}>
-                <img
-                  src="https://via.placeholder.com/40x60/0bf/fff&text=A"
-                  alt=""
-                  className="quiz-option__image"
-                />
-              </button>
+            <button className={`quiz-option`} onClick={handleOptionSelected}>
+              <img
+                src={optionImages.a}
+                alt={`${optionImages.a}`}
+                className="quiz-option__image"
+              />
+            </button>
 
-              <button className={`quiz-option ${activeStatus}`} onClick={handleOptionSelected}>
-                <img
-                  src="https://via.placeholder.com/40x60/0bf/fff&text=B"
-                  alt=""
-                  className="quiz-option__image"
-                />
-              </button>
-            
+            <button className={`quiz-option`} onClick={handleOptionSelected}>
+              <img
+                src={optionImages.b}
+                alt={`${optionImages.b}`}
+                className="quiz-option__image"
+              />
+            </button>
 
-            
-              <button className={`quiz-option ${activeStatus}`} onClick={handleOptionSelected}>
-                <img
-                  src="https://via.placeholder.com/40x60/0bf/fff&text=C"
-                  alt=""
-                  className="quiz-option__image"
-                />
-              </button>
+            <button className={`quiz-option`} onClick={handleOptionSelected}>
+              <img
+                src={optionImages.c}
+                alt={`${optionImages.c}`}
+                className="quiz-option__image"
+              />
+            </button>
 
-              <button className={`quiz-option ${activeStatus}`} onClick={handleOptionSelected}>
-                <img
-                  src="https://via.placeholder.com/40x60/0bf/fff&text=D"
-                  alt=""
-                  className="quiz-option__image"
-                />
-              </button>
-            
+            <button className={`quiz-option`} onClick={handleOptionSelected}>
+              <img
+                src={optionImages.d}
+                alt={`${optionImages.d}`}
+                className="quiz-option__image"
+              />
+            </button>
           </section>
         </section>
 
         <div className="continue-quiz">
-          <button className="continue-quiz__button">Continue</button>
+          <button className="continue-quiz__button" onClick={handleContinue}>
+            Continue
+          </button>
         </div>
       </section>
     </section>
