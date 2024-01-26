@@ -39,7 +39,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding: 1rem;
+    padding: 3rem 2rem;
 
     @include tabletplus {
       justify-content: space-around;
@@ -71,11 +71,15 @@
     }
 
     &-text {
-      @extend .page-header;
       color: gray;
-      font-size: 1.75rem;
+      //   color: $color-yellow;
+      font-size: 1.5rem;
       font-weight: 700;
       padding: 1rem 0;
+
+      @include tabletplus {
+        font-size: 2rem;
+      }
     }
   }
 

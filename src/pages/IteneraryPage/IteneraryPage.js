@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import cruiseShip from "../../assets/images/cruiseship.jpg";
+import cruiseShip from "../../assets/images/boat-nobg.png";
 import "./IteneraryPage.scss";
 import { Link } from "react-router-dom";
 
