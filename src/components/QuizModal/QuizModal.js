@@ -38,10 +38,10 @@ function QuizModal() {
     }
     if (currentQuestion === 2) {
       setOptionImages({
-        a: QuizImages().bed, //replace .seal etc with final images
-        b: QuizImages().stargaze,
-        c: QuizImages().party,
-        d: QuizImages().midnightDip,
+        a: QuizImages().pizza, //replace .seal etc with final images
+        b: QuizImages().salad,
+        c: QuizImages().soup,
+        d: QuizImages().paella,
       });
     }
     if (currentQuestion === 3) {
@@ -54,10 +54,10 @@ function QuizModal() {
     }
     if (currentQuestion === 4) {
       setOptionImages({
-        a: QuizImages().whale,
-        b: QuizImages().whale,
-        c: QuizImages().whale,
-        d: QuizImages().whale,
+        a: QuizImages().bed, //replace .seal etc with final images
+        b: QuizImages().stargaze,
+        c: QuizImages().party,
+        d: QuizImages().midnightDip,
       });
     }
   }, [currentQuestion]);
@@ -85,21 +85,6 @@ function QuizModal() {
   };
 
   const handleContinue = (event) => {
-    // Check the specific logic for advancing to the next question
-    switch (currentQuestion) {
-      case 1:
-        // Add any specific logic for question 1
-        break;
-      case 2:
-        // Add any specific logic for question 2
-        break;
-      case 3:
-        // Add any specific logic for question 3
-        break;
-      default:
-        // Default logic for other questions
-        break;
-    }
   
     // Increment the current question
     if (currentQuestion < totalQuestions) {
