@@ -1,0 +1,35 @@
+@import "../../styles/partials/mixins";
+
+.package-sections {
+  margin: 1.5rem;
+  @include tabletplus {
+    margin: 2rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 112%;
+    margin-top: 3.125rem;
+  }
+
+  &__copy {
+    margin-top: 3.125rem;
+    font-size: 1.25rem;
+    line-height: 112%;
+  }
+  &__options {
+    margin-top: 3.125rem;
+  }
+  &__cruises {
+    display: flex;
+    flex-direction: column;
+    @include tabletplus {
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 1rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
