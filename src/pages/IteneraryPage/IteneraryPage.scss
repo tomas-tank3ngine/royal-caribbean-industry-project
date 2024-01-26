@@ -1,0 +1,159 @@
+@use "../../styles/partials/global.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.boat {
+  //   padding: 1rem 1rem;
+  color: $color-white;
+  position: relative;
+  background-image: url("../../assets/images/nassau-bahamas-paradise-island-lighthouse.webp");
+  background-size: cover;
+  //   display: flex;
+  //   justify-content: space-evenly;
+  //   align-items: center;
+  //   flex-direction: column;
+  //   padding: 2rem 4rem;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+
+  &__close-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 70%;
+    z-index: -1;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 3rem 2rem;
+
+    @include tabletplus {
+      justify-content: space-around;
+      padding: 4rem 3rem;
+    }
+  }
+
+  &__heading {
+    @extend .page-header;
+  }
+
+  &__nights {
+    @extend .subheader;
+    color: gray;
+    padding-bottom: 0.5rem;
+  }
+
+  &__image {
+    width: 90%;
+    padding-bottom: 8px;
+
+    &--container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+
+    &-text {
+      color: gray;
+      //   color: $color-yellow;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1rem 0;
+
+      @include tabletplus {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__content {
+    padding: 0 1rem 1rem 0;
+    &--container {
+      padding: 1rem 0;
+
+      @include tabletplus {
+        padding: 2rem 0;
+      }
+    }
+    &--span {
+      font-weight: 700;
+    }
+  }
+
+  &__booking {
+    padding-bottom: 1rem;
+
+    @include tabletplus {
+      font-size: 1.5rem;
+      padding-bottom: 4rem;
+    }
+    &--container {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include tabletplus {
+        justify-content: flex-start;
+        align-items: start;
+      }
+    }
+    &--button {
+      background-color: $color-yellow;
+      color: rgb(56, 67, 120);
+      border: 0px rgb(237, 238, 243);
+      min-width: 100px;
+      box-shadow: 0 1px 3px $color-black;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 11px 15px;
+      border-radius: 5px;
+      height: 44px;
+      letter-spacing: 3px;
+      // margin-right: 10px;
+
+      &:hover {
+        background-color: #fdde8e;
+        border-color: rgb(56, 67, 120);
+        color: $color-black;
+      }
+    }
+  }
+
+  &__flex--container {
+    @include tabletplus {
+      display: flex;
+    }
+  }
+}
+
+.display-none-tablet {
+  @include tabletplus {
+    display: none;
+  }
+}
+
+.display-none-mobile {
+  display: none;
+  @include tabletplus {
+    display: flex;
+  }
+}

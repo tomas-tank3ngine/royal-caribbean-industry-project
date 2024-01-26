@@ -1,4 +1,5 @@
 import "./PackageOption.scss";
+import { Link } from "react-router-dom";
 
 import littleShip from "../../assets/images/little-ship.svg";
 
@@ -18,7 +19,11 @@ const PackageOption = ({ cruise }) => {
         <p className="package-option__overnights">{cruise.overnights} NIGHTS</p>
         <h3 className="package-option__cruise-name">{cruise.name}</h3>
         <h2 className="package-option__cost">${cruise.cost}</h2>
-        <button className="package-option__button">View Dates</button>
+        <button className="package-option__button">
+          <Link className="package-option__link" to={"/itenerary"}>
+            View Details
+          </Link>
+        </button>
       </div>
     </li>
   );
