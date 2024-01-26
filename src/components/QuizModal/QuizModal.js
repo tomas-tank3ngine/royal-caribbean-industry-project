@@ -1,6 +1,6 @@
 import "./QuizModal.scss";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
 import StepProgressBar from "../ProgressBar/ProgressBar";
 
@@ -86,10 +86,10 @@ function QuizModal() {
       setActiveOption(null);
     } else {
       console.log(answerMemory);
-      navigate("/Loading")
-      setTimeout(()=> {
-          navigate("/packages")
-      }, 2000)
+      navigate("/Loading");
+      setTimeout(() => {
+        navigate("/packages");
+      }, 4000);
     }
   };
 
@@ -112,42 +112,73 @@ function QuizModal() {
         </section>
         <section className="progress-bar">
           {/* Use currentQuestion to help with progress bar */}
-          <StepProgressBar currentQuestion={currentQuestion} totalQuestions={totalQuestions}/>
+          <StepProgressBar
+            currentQuestion={currentQuestion}
+            totalQuestions={totalQuestions}
+          />
         </section>
 
         <section className="quiz-text">
-          <h2 className="quiz-text__heading">What cruise personality are you?</h2>
-          <h1 className="quiz-text__prompt">{questions[currentQuestion - 1]}</h1>
+          <h2 className="quiz-text__heading">
+            What cruise personality are you?
+          </h2>
+          <h1 className="quiz-text__prompt">
+            {questions[currentQuestion - 1]}
+          </h1>
         </section>
 
         <section className="quiz-content">
           <section className="quiz-options">
             <button
-              className={`quiz-option ${activeOption === 'a' ? 'active-option' : ''}`}
-              onClick={(event) => handleOptionSelected(event, 'a')}
+              className={`quiz-option ${
+                activeOption === "a" ? "active-option" : ""
+              }`}
+              onClick={(event) => handleOptionSelected(event, "a")}
             >
-              <img src={optionImages.a} alt={`${optionImages.a}`} className="quiz-option__image" />
+              <img
+                src={optionImages.a}
+                alt={`${optionImages.a}`}
+                className="quiz-option__image"
+              />
             </button>
 
             <button
-              className={`quiz-option ${activeOption === 'b' ? 'active-option' : ''}`}
-              onClick={(event) => handleOptionSelected(event, 'b')}
+              className={`quiz-option ${
+                activeOption === "b" ? "active-option" : ""
+              }`}
+              onClick={(event) => handleOptionSelected(event, "b")}
             >
-              <img src={optionImages.b} alt={`${optionImages.b}`} className="quiz-option__image" />
+              <img
+                src={optionImages.b}
+                alt={`${optionImages.b}`}
+                className="quiz-option__image"
+              />
             </button>
 
             <button
-              className={`quiz-option ${activeOption === 'c' ? 'active-option' : ''}`}
-              onClick={(event) => handleOptionSelected(event, 'c')}
+              className={`quiz-option ${
+                activeOption === "c" ? "active-option" : ""
+              }`}
+              onClick={(event) => handleOptionSelected(event, "c")}
             >
-              <img src={optionImages.c} alt={`${optionImages.c}`} className="quiz-option__image" />
+              <img
+                src={optionImages.c}
+                alt={`${optionImages.c}`}
+                className="quiz-option__image"
+              />
             </button>
 
             <button
-              className={`quiz-option ${activeOption === 'd' ? 'active-option' : ''}`}
-              onClick={(event) => handleOptionSelected(event, 'd')}
+              className={`quiz-option ${
+                activeOption === "d" ? "active-option" : ""
+              }`}
+              onClick={(event) => handleOptionSelected(event, "d")}
             >
-              <img src={optionImages.d} alt={`${optionImages.d}`} className="quiz-option__image" />
+              <img
+                src={optionImages.d}
+                alt={`${optionImages.d}`}
+                className="quiz-option__image"
+              />
             </button>
           </section>
         </section>
