@@ -1,12 +1,13 @@
 import React from "react";
+import whaleIcon from "../../assets/images/icons/whaleIcon.png"
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 
-function StepProgressBar(){
-
+function StepProgressBar({ currentQuestion, totalQuestions }){
+  const stepPercentage = (currentQuestion / totalQuestions) * 100;
     return (
       <ProgressBar
-        percent={75}
+        percent={stepPercentage}
         filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
       >
         <Step transition="scale">
@@ -15,7 +16,7 @@ function StepProgressBar(){
                 alt="pikachu icon"
               style={{ filter: `grayscale(indexedStep ${accomplished ? "accomplished" : null}}%)` }}
               width="30"
-              src="https://vignette.wikia.nocookie.net/pkmnshuffle/images/9/9d/Pichu.png/revision/latest?cb=20170407222851"
+              src={whaleIcon}
             />
           )}
         </Step>

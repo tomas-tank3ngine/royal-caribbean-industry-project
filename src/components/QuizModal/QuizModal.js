@@ -1,6 +1,7 @@
 import "./QuizModal.scss";
 import { useEffect, useState } from "react";
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
+import StepProgressBar from "../ProgressBar/ProgressBar";
 
 function QuizModal() {
   const totalQuestions = 4;
@@ -106,7 +107,7 @@ function QuizModal() {
         </section>
         <section className="progress-bar">
           {/* Use currentQuestion to help with progress bar */}
-          PROGRESS BAR
+          <StepProgressBar currentQuestion={currentQuestion} totalQuestions={totalQuestions}/>
           {`${answerMemory.one}`}
         </section>
 
