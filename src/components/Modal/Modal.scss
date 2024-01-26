@@ -29,4 +29,9 @@
     display: flex;
     justify-content: center;
   }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+  }
 }
