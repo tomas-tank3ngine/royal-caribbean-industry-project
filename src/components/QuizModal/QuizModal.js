@@ -55,7 +55,7 @@ function QuizModal() {
     }
   }, [currentQuestion]);
 
-  const handleOptionSelected = (event, imageIdentifier) => {
+  const handleOptionSelected = (event, imageIdentifier) => {    //imageIdentifier comes from the button's onClick, can be a-d
     const buttons = Array.from(event.currentTarget.parentNode.children); // make an array of all 'option' buttons
     const index = buttons.indexOf(event.currentTarget); // Get the clicked button's index
 
@@ -71,13 +71,19 @@ function QuizModal() {
           ...prevAnswerMemory,
           [getQuestionKey(currentQuestion)]: imageIdentifier,
         }));
+
+        
       }
     });
   };
 
   const handleContinue = (event) => {
-    if (currentQuestion <= totalQuestions) {//may need to be only 'less than' totalQuestions
+    if (currentQuestion < totalQuestions) {//may need to be only 'less than' totalQuestions
       setCurrentQuestion(currentQuestion + 1);
+    }
+
+    else{
+        console.log(answerMemory);
     }
   };
 
@@ -113,7 +119,7 @@ function QuizModal() {
 
         <section className="quiz-content">
           <section className="quiz-options">
-            <button className={`quiz-option`} onClick={handleOptionSelected}>
+            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'a')}>
               <img
                 src={optionImages.a}
                 alt={`${optionImages.a}`}
@@ -121,7 +127,7 @@ function QuizModal() {
               />
             </button>
 
-            <button className={`quiz-option`} onClick={handleOptionSelected}>
+            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'b')}>
               <img
                 src={optionImages.b}
                 alt={`${optionImages.b}`}
@@ -129,7 +135,7 @@ function QuizModal() {
               />
             </button>
 
-            <button className={`quiz-option`} onClick={handleOptionSelected}>
+            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'c')}>
               <img
                 src={optionImages.c}
                 alt={`${optionImages.c}`}
@@ -137,7 +143,7 @@ function QuizModal() {
               />
             </button>
 
-            <button className={`quiz-option`} onClick={handleOptionSelected}>
+            <button className={`quiz-option`} onClick={(event) => handleOptionSelected(event, 'd')}>
               <img
                 src={optionImages.d}
                 alt={`${optionImages.d}`}
