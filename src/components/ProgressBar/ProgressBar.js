@@ -10,10 +10,10 @@ function StepProgressBar(){
         filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
       >
         <Step transition="scale">
-          {({ accomplished }) => (
+          {({ accomplished, index }) => (
             <img
                 alt="pikachu icon"
-              style={{ filter: `grayscale(${accomplished ? 0 : 80}%)` }}
+              style={{ filter: `grayscale(indexedStep ${accomplished ? "accomplished" : null}}%)` }}
               width="30"
               src="https://vignette.wikia.nocookie.net/pkmnshuffle/images/9/9d/Pichu.png/revision/latest?cb=20170407222851"
             />
