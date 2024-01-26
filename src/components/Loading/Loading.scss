@@ -44,12 +44,34 @@
     &__icons{
         img{
             display: inline-block;
-            width: 280px;
-            height: 105px;
+            width: 88px;
+            height: 85px;
             position: relative;
             left: 2%;
-            bottom: 5%;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     }
+
+    .first {
+        animation: fadeIn 6s; 
+        animation-delay: 2ms;
+        animation-duration: 4s;
+      }
+
+      .second {
+        animation: fadeIn 10s; 
+        animation-delay: 4ms;
+        animation-duration: 10s;
+      }
+
+      .third{
+        animation: fadeIn 14s; 
+        animation-delay: 6ms;
+        animation-duration: 16s;
+      }
 }
 
