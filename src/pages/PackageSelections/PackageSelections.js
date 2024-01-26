@@ -38,7 +38,6 @@ const PackageSelections = () => {
           ))}
         </ul>
       </div>
-      <hr />
     </section>
   );
 };

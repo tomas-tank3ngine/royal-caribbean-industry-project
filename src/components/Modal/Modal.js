@@ -33,7 +33,7 @@ function Modal({ onClosed }) {
         <section className="modal-content__section modal-content__section--bottom">
           <button className="modal-content__section-button">
             <Link className="modal-content__section-link" to={"/survey"}>
-              CONTINUE
+              Continue
             </Link>
           </button>
           <h3 className="modal-content__section-message">
