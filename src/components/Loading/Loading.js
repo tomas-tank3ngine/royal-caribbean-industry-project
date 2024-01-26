@@ -1,5 +1,5 @@
 import './Loading.scss';
-import blueWhale from "../../assets/images/icons/blueWhaleIcon.png";
+import blueWhale from "../../assets/images/icons/whales.png";
 
 
 function Loading(){
@@ -10,8 +10,6 @@ function Loading(){
                 <h1 className="loading-container__heading">
                     Loading
                     <div className='loading-container__icons'>
-                        <img src={blueWhale}/>
-                        <img src={blueWhale}/>
                         <img src={blueWhale}/>
                     </div>
                 </h1>

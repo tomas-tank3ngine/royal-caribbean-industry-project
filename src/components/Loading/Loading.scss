@@ -17,7 +17,6 @@
     position: absolute;
     top: 50%;
     left: 20%;
-    display: flex;
 
     &__heading{
         color: $color-black;
@@ -29,8 +28,11 @@
     &__icons{
         img{
             display: inline-block;
-            width: 75px;
-            height: 80px;
+            width: 280px;
+            height: 105px;
+            position: relative;
+            left: 2%;
+            bottom: 5%;
         }
     }
 }
