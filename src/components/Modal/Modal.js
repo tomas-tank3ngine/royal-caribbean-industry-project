@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Modal.scss";
-import modalImage from "../../assets/images/modal-image.jpg";
+import modalImage from "../../assets/images/bahamas.jpeg";
 
 function Modal({ onClosed }) {
   function onCancelClicked() {

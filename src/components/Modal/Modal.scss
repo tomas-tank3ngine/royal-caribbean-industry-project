@@ -1,6 +1,6 @@
-@use "../../styles/partials/global.scss" as *;
-@use "../../styles/partials/variables.scss" as *;
-@use "../../styles/partials/mixins.scss" as *;
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
 
 .modal {
   display: flex;
@@ -51,16 +51,16 @@
   }
 
   &__section-close-button {
-    color: $color-highlight-blue;
+    color: $color-dark-blue;
     font-size: 30px;
 
     &:hover {
-      color: $color-dark-blue;
+      color: $color-yellow;
     }
   }
 
   &__section-message {
-    color: $color-highlight-blue;
+    color: $color-dark-blue;
   }
 
   &__section-image {
@@ -74,7 +74,8 @@
     border: none;
     min-width: 64px;
     box-shadow: none;
-    font-family: "Proxima Nova SemiBold", Verdana, Geneva, sans-serif;
+    font-family: 'Proxima Nova SemiBold', Verdana, Geneva,
+      sans-serif;
     font-size: 16px;
     line-height: 20px;
     padding: 11px 15px;
@@ -96,13 +97,13 @@
 }
 
 .modal-content::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assets/images/modal-image.png");
+  background-image: url('../../assets/images/bahamas.jpeg');
   background-size: cover;
   filter: blur(5px);
   z-index: -1;
