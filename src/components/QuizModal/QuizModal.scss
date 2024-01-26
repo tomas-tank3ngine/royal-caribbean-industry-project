@@ -85,6 +85,12 @@
             object-position: center;
             background-color: $color-mercury;
             border-radius: 0.25rem;
+            transition: transform 0.3s ease-in-out;
+
+            @include tabletplus {
+              width: 90%;
+              height: 120px;
+            }
           }
         }
       }
@@ -119,5 +125,5 @@
 }
 
 .active-option {
-  border: $color-white 4px solid;
+  transform: scale(1.1);
 }
