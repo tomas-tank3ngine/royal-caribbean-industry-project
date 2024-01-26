@@ -12,7 +12,7 @@ function App() {
           <Route path="/survey" element={<SurveyPage />} />
         </Routes>
       </BrowserRouter>
-      <button>Click me</button>
+      {/* <button>Click me</button> */}
     </>
   );
 }

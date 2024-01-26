@@ -1,3 +1,7 @@
+@use "../../styles/partials/global.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
 .modal {
   display: flex;
   justify-content: center;

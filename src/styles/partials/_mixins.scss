@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use "./variables.scss" as *;
 @mixin blank-slate-styling{
     * {
         box-sizing: border-box;
