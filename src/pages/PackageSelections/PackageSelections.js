@@ -18,7 +18,7 @@ const PackageSelections = () => {
       alt: "birds eye view of the caribbean beach",
       info: "Independance of the Seas",
       overnights: 4,
-      name: "Eatern Caribbean Cruise",
+      name: "Eastern Caribbean Cruise",
       cost: 342,
     },
   ];
