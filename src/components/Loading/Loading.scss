@@ -1,0 +1,37 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+
+.loading-message{
+    width: 46%;
+    color: $color-black;
+    font-weight: 700;
+
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+}
+
+.loading-container{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    display: flex;
+
+    &__heading{
+        color: $color-black;
+        font-weight: 700;
+        font-size: 50px;
+        display: flex;
+    }
+
+    &__icons{
+        img{
+            display: inline-block;
+            width: 75px;
+            height: 80px;
+        }
+    }
+}
+
