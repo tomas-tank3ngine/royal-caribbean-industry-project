@@ -2,6 +2,7 @@ import "./PackageSelections.scss";
 import PackageOption from "../../components/PackageOption/PackageOption";
 import bahamasParadise from "../../assets/images/nassau-bahamas-paradise-island-lighthouse.webp";
 import easternCaribbean from "../../assets/images/easternCaribbean.png";
+import { Link } from "react-router-dom";
 
 const PackageSelections = () => {
   const cruises = [
@@ -24,6 +25,9 @@ const PackageSelections = () => {
   ];
   return (
     <section className="package-sections">
+      <section className="package-sections__close">
+          <Link to="/" className="close-button">X</Link>
+        </section>
       <h2 className="package-sections__title">
         Cruise packages we think you'd like
       </h2>

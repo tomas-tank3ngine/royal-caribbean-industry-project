@@ -1,16 +1,16 @@
 import "./QuizModal.scss";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import QuizImages from "../QuizImageHolder/QuizImageHolder";
 import StepProgressBar from "../ProgressBar/ProgressBar";
 
 function QuizModal() {
   const totalQuestions = 4;
   const questions = [
-    "Choose your favorite animal",
-    "It's dinner time and you're craving food, what do you go with?!",
+    "Which animal represents your cruise personality?",
+    "It's dinner time and you're starving! Which meal looks the tastiest?",
     "What is your favorite color?",
-    "It's 9pm and you're left with these options, what are you choosing?",
+    "It's 9pm, how would you like to spend your evening?",
   ];
 
   // Keeps track of which question the user is on - starts on the first question
@@ -108,7 +108,7 @@ function QuizModal() {
     <section className="quiz-modal__wrapper">
       <section className="quiz-modal">
         <section className="close-modal">
-          <button className="close-modal__button">X</button>
+          <Link to="/" className="close-modal__button">X</Link>
         </section>
         <section className="progress-bar">
           {/* Use currentQuestion to help with progress bar */}

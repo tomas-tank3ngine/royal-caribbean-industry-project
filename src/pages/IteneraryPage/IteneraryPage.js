@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import cruiseShip from "../../assets/images/boat-nobg.png";
 import "./IteneraryPage.scss";
 import { Link } from "react-router-dom";
@@ -20,7 +19,7 @@ const IteneraryPage = () => {
             <img
               className="boat__image"
               src={cruiseShip}
-              alt="cruise ship picture"
+              alt="cruise ship"
             />
             <p className="boat__image-text">Grandeur of the Seas</p>
           </div>
@@ -46,7 +45,7 @@ const IteneraryPage = () => {
               <img
                 className="boat__image"
                 src={cruiseShip}
-                alt="cruise ship picture"
+                alt="cruise ship"
               />
             </div>
           </div>
