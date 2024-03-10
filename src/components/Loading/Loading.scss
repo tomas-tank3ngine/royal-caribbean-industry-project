@@ -1,0 +1,89 @@
+@use "../../styles/partials/global.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.loading-message {
+  @include mobile-only {
+    width: 100%;
+  }
+
+  @include tabletplus {
+    width: 46%;
+  }
+
+  @include tablet-only {
+    width: 46%;
+  }
+
+  @include desktop {
+    width: 46%;
+  }
+
+  color: $color-black;
+  font-weight: 700;
+
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+}
+
+.loading-container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+
+  &__heading {
+    font-weight: 700;
+    font-size: 25px;
+
+    @include tabletplus {
+      color: $color-black;
+      font-weight: 700;
+      font-size: 50px;
+      display: flex;
+    }
+  }
+
+  &__icons {
+    img {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      position: relative;
+      left: 2%;
+
+      @include tabletplus {
+        width: 88px;
+        height: 85px;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  .first {
+    animation: fadeIn 6s;
+    animation-delay: 2ms;
+    animation-duration: 4s;
+  }
+
+  .second {
+    animation: fadeIn 10s;
+    animation-delay: 4ms;
+    animation-duration: 10s;
+  }
+
+  .third {
+    animation: fadeIn 14s;
+    animation-delay: 6ms;
+    animation-duration: 16s;
+  }
+}

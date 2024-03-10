@@ -1,0 +1,188 @@
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+@include blank-slate-styling;
+
+@font-face {
+  font-family: "Verdana";
+  src: url("/assets/fonts/verdana.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("/assets/fonts/verdana.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url("/assets/fonts/verdana-bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+.page-header {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: "Verdana", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tabletplus {
+    font-size: 2.0625rem;
+    line-height: 2rem;
+    font-family: "Verdana", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.section-header {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-family: "Verdana", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tabletplus {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-family: "Verdana", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.subheader {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-family: "Verdana", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tabletplus {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-family: "Verdana", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.body-copy {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-family: "Verdana", Arial, sans-serif;
+  font-weight: 400;
+
+  @include tabletplus {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-family: "Verdana", Arial, sans-serif;
+    font-weight: 400;
+  }
+}
+
+.label {
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-family: "Verdana", Arial, sans-serif;
+  font-weight: 500;
+
+  @include tabletplus {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-family: "Verdana", Arial, sans-serif;
+    font-weight: 500;
+  }
+}
+
+.button {
+  @extend .label;
+  font-size: 0.8125rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+  padding: 0 2rem;
+  background-color: $color-blue;
+  color: $color-white;
+  border: 0.0625rem solid $color-blue;
+  width: 100%;
+  position: relative;
+  text-transform: uppercase;
+  @include tabletplus {
+    min-width: 9.375rem;
+    width: 10%;
+  }
+
+  &:hover {
+    background-color: $color-dark-blue;
+    border: 0.0625rem solid $color-dark-blue;
+  }
+}
+
+.icon-image {
+  position: absolute;
+  left: 0.9375rem;
+  top: 25%;
+  height: 50%;
+  width: fit-content;
+}
+
+//Use for when container margin needs to be auto
+.margin-auto-format {
+  margin: 0 1rem;
+
+  @include tabletplus {
+    margin: 0 2.25rem;
+  }
+
+  @include desktop {
+    margin: 0 10vw;
+  }
+}
+
+//Use for when container padding needs to be auto
+.padding-auto-format {
+  padding: 0 1rem;
+
+  @include tabletplus {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 10vw;
+  }
+}
+
+.loading-data {
+  @extend .subheader;
+}
+
+.form-input-field {
+  background-color: $color-alabaster;
+
+  width: 100%;
+  min-height: 2.25rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+
+  border: 0.0625rem solid $color-mercury;
+  @extend .body-copy;
+
+  &::placeholder {
+    color: $color-black;
+    @extend .body-copy;
+  }
+
+  &:focus {
+    border-color: $color-blue;
+  }
+
+  &:user-invalid {
+    border-color: $color-error;
+  }
+
+  @include tabletplus {
+    padding: 0.5rem;
+  }
+}
+
+//Example use for responsive styling
+// @include tabletplus{
+//     min-width:9.375rem;
+//     width: 10%;
+// }

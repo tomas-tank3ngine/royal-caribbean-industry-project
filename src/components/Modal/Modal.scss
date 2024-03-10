@@ -1,0 +1,147 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.fade-background{
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('../../assets/images/bahamas.jpeg');
+  background-size:auto;
+  // object-fit:fill;
+  // aspect-ratio: 16 / 9;
+  // overflow: hidden;
+  z-index: 3;
+}
+
+.modal-content {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-evenly;
+  gap: 8px;
+  backdrop-filter: blur(2px);
+
+  //   align-items: center;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  width: 100%;
+  z-index: 4;
+  // width: 1100px;
+  // height: 700px;
+
+  &__section {
+    display: flex;
+
+    &--close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
+
+    &--top {
+      justify-content: flex-start;
+      width: 100%;
+      font-size: 32px;
+    }
+
+    &--middle {
+      justify-content: center;
+    }
+
+    &--bottom {
+      justify-content: space-between;
+      font-size: 40px;
+    }
+  }
+
+  &__section-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color-dark-blue;
+    font-size: 20px;
+    background-color: $color-yellow;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: mix(black, $color-yellow, 20%);
+
+    }
+  }
+
+  &__section-message {
+    color: $color-dark-blue;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  &__section-image {
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.8);
+
+    // width: 600px;
+    // height: 300px;
+  }
+
+  &__section-button {
+    background-color: $color-yellow;
+    color: $color-dark-blue;
+    border: none;
+    min-width: 64px;
+    box-shadow: none;
+    font-family: 'Proxima Nova SemiBold', Verdana, Geneva,
+      sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    height: 44px;
+    letter-spacing: 0.2ch;
+    margin-right: 10px;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.3);
+
+
+    &:hover {
+      background-color: rgb(56, 67, 120);
+      border-color: rgb(56, 67, 120);
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  &__section-link {
+    text-decoration: none;
+  }
+}
+
+.odal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../assets/images/bahamas.jpeg');
+  background-size: cover;
+  // aspect-ratio: 16 / 9;
+  filter: blur(5px);
+  overflow: hidden;
+  z-index: -1;
+}

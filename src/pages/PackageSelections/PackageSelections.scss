@@ -1,0 +1,61 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/mixins.scss' as *;
+
+.package-sections {
+  margin: 1.5rem;
+  @include tabletplus {
+    margin: 2rem;
+  }
+
+  &__close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: $color-yellow;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .close-button{
+      color: $color-dark-blue;
+      font-size: 20px;
+      
+      // box-shadow: 0 0 0.75rem 0.0625rem rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        // background-color: mix(black, $color-yellow, 20%);
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 112%;
+    margin-top: 3.125rem;
+  }
+
+  &__copy {
+    margin-top: 3.125rem;
+    font-size: 1.25rem;
+    line-height: 112%;
+  }
+  &__options {
+    margin-top: 3.125rem;
+  }
+  &__cruises {
+    display: flex;
+    flex-direction: column;
+    @include tabletplus {
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 1rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}

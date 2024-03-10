@@ -1,0 +1,9 @@
+.background {
+  width: 100%;
+  z-index: -10;
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+  }
+}
