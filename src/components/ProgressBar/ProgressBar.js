@@ -11,7 +11,7 @@ function StepProgressBar({ currentQuestion, totalQuestions }) {
   return (
     <div className="progress-bar-container">
       <div className="whale-container" style={{ left: `${stepPercentage}%` }}>
-        <img className="progress__img" alt="whale icon" src={currentQuestion % 2 === 0 ? whaleIcon : blueWhale} />
+        <img className="progress__img" alt="whale" src={currentQuestion % 2 === 0 ? whaleIcon : blueWhale} />
       </div>
       {[...Array(totalQuestions)].map((_, index) => (
         <Step key={index} transition="scale">

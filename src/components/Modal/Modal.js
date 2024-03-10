@@ -29,7 +29,7 @@ function Modal({ onClosed }) {
             <img
               className="modal-content__section-image"
               src={modalImage}
-              alt="modal-image"
+              alt="modal"
             />
           </section>
           <section className="modal-content__section modal-content__section--bottom">

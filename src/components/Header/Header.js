@@ -16,7 +16,7 @@ const Header = () => {
                         <SideNav/>
                         </Col>
                     <Col className="header__container py-3" xs={8} md={10}>
-                        <a href={"https://www.royalcaribbean.com/"}><img className="header__logo" src={logo} alt="Royal Caribbean Logo"></img></a>
+                        <a href={"https://www.royalcaribbean.com/"}><img className="header__logo" src={logo} alt="Royal Caribbean"></img></a>
                     </Col>
                     <Col xs={2} md={1} className="header__search">
                         <button className="search__button search__buton--hidden"><FontAwesomeIcon icon={faSearch} className='fa-lg' style={{color : "white"}}/></button>
